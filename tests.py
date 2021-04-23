@@ -9,3 +9,5 @@ assert(get_identifier(1) == 'o')
 assert(get_identifier(0) == 'x')
 assert(get_identifier(10) == 'x')
 assert(get_identifier(21) == 'o')
+
+print("All Tests finished successfully!")
