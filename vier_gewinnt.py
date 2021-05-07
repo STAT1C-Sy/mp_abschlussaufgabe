@@ -46,7 +46,6 @@ def get_diag_left_right(board: list, row: int, column: int) -> list:
 def get_diag_right_left(board: list, row: int, column: int) -> list:
     '''gibt die diagonale unten rechts nach oben links (ausgegangen vom angegebenen Punkt)'''
     down = [ get_identifier_at_position(board, row + i, column + i) for i in range(1, len(board) )]
-    down.reverse()
     up = [ get_identifier_at_position(board, row - i, column - i) for i in range(0, len(board) )]
     return up + down
 
