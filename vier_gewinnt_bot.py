@@ -11,6 +11,7 @@ def user_or_bot_input(params: dict) -> int:
             print("Bitte gib einen validen Wert an")
             return user_or_bot_input(params)
     else:
+        #generiert eine zufällige Zahl und prüft ob diese einen validen Zug darstellt
         selected_column = random.randint(0, 7)
         if not check_valid_move(params["board"], selected_column):
             user_or_bot_input(params)

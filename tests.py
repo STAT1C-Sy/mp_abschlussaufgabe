@@ -160,7 +160,7 @@ def test_game_round():
 
 
 def run_all_tests():
-
+    '''Ausführen aller Testcaes'''
     test_get_all_identifier_positions()
     test_check_identifier_won()
     test_check_won()
