@@ -1,4 +1,4 @@
-# mp_abschlussaufgabe
+# Abschlussaufgabe moderne Programmierkonzepte
 Repo für die Abschlussaufgabe in moderne Programmierkonzepte von:
 - Fynn Weyrich (9818779)
 - Oscar Rath (1221656)
