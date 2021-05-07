@@ -1,7 +1,7 @@
 from functools import reduce 
 
 def generate_gameboard(rows: int, columns: int) -> list:
-    '''generiert das Spielfeld'''
+    '''generiert das Spielfeld als zwei dimensionale liste'''
     return [
         [ "" for j in range(columns) ] for i in range(rows)
     ]
@@ -23,7 +23,7 @@ def check_valid_move(board: list, column: int) -> bool:
     return get_column(board, column).count("") >= 1
 
 def get_column(board: list, column: int) -> list:
-    ''' gibt eine Spalte zurück '''
+    ''' gibt eine Spalte zurück'''
     return [ row[column] for row in board ]
 
 def get_identifier_at_position(board: list, row: int, column: int) -> str:
@@ -87,7 +87,7 @@ def print_round_start(turn: int, board: list, identifier: str):
     print("".join("{:^4}".format(i) for i in range(len(board[0])))) 
     print("Spieler (" + identifier +  ") " + str(1 + (turn % 2)) + " ist an der Reihe")
 
-def basic_user_input():
+def basic_user_input(params: dict) -> int:
     '''Funktion, um den User-Input einzulesen und zu validieren'''
     try:
         user_input = input("Spalte: ")
@@ -98,6 +98,7 @@ def basic_user_input():
     return selected_column
 
 def cast_and_validate_input(user_input):
+    '''Wandelt den input zu einem integer und wirft ggf einen error'''
     casted_input = int(user_input)
     if casted_input < 0 or casted_input > 7:
         raise ValueError
@@ -121,7 +122,10 @@ def game_loop(get_user_input):
     while True:
         identifier = get_identifier(turn)
         print_round_start(turn, board, identifier)
-        selected_column = get_user_input()
+        selected_column = get_user_input({
+            'turn': turn,
+            'board': board
+        })
         if check_valid_move(board, selected_column):
             board = game_round(turn, board, selected_column)
             turn += 1
